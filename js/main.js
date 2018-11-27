@@ -29,6 +29,7 @@
   var mass_3_3 = document.getElementById('mass_3_3');
 
   var counter = document.getElementById('counter');
+  var popped_area = document.getElementById('popped_area');
 
   var red_mass_class = document.getElementsByClassName('red_mass_class');
   var blue_mass_class = document.getElementsByClassName('blue_mass_class');
@@ -43,6 +44,8 @@
   var mass_3_1_array = new Array();
   var mass_3_2_array = new Array();
   var mass_3_3_array = new Array();
+
+  var popped_mass;
 
   //
   // 関数定義
@@ -89,6 +92,9 @@
     else if(item === red_4){
       return 4;
     }
+    else{
+      return false;
+    }
   }
 
   //
@@ -131,6 +137,9 @@
     }
     else if(item === blue_4){
       return 4;
+    }
+    else{
+      return false;
     }
   }
 
@@ -275,7 +284,7 @@
   //
   //
   function show_mass(top_item, where){
-    console.log(top_item);
+    //console.log(top_item);
     if (top_item === undefined){
       where.textContent = "";
     }
@@ -502,22 +511,39 @@
     // マスが選択されている場合に, マスをクリックした場合も含む.
     //
     else {
+      // var popped_mass;
+
+      //
+      // やること
+      //
+
+      // 選択されたマスが存在しないとき...
+      // 1. 何も数字がないマスをクリックしたとき
+      //     -> 無反応にする.
+      // 2. 相手の数字のマスをクリックしたとき
+      //     -> 無反応にする.
+      // 3. 自分の数字のマスをクリックしたとき
+      //     -> マスを選択状態にし, スタックトップはpopped_areaに退避させる.
+
+      // 選択されたマスが存在するとき...
+      // 1. 選択されたマスをもう一度クリックしたとき
+      //    -> popped_areaにある数字を再び同じスタックに戻し, 再び自分のターンとする.
+      // 2. 選択されていないマスをクリックしたとき
+      //    -> popped_areaにある数字をクリックしたマスに戻し, 相手のターンとする.
+
       if(mass.classList.contains("selected")){ // すでに選択されているマスを再びクリックしたときは, そのマスの選択を解除する.
         mass.classList.remove("selected");
+        // popped_massをスタックにpushする必要がある?
       }
       else{ // 他のマスが選択されている, またはマスが選択されていない場合の処理. 一旦全てのマスのselectedを解除し, クリックされたマスのみを選択する.
+        popped_mass = pop_mass_stack(mass); // スタックトップをpopする.
 
-        if (mass_1_1.classList.contains('selected') || mass_1_2.classList.contains('selected') || mass_1_3.classList.contains('selected') ||
-            mass_2_1.classList.contains('selected') || mass_2_2.classList.contains('selected') || mass_2_3.classList.contains('selected') ||
-            mass_3_1.classList.contains('selected') || mass_3_2.classList.contains('selected') || mass_3_3.classList.contains('selected') ){
-              // var array = Array.prototype.slice.call(mass_all); //配列に変換
-              // for(var key in array){
-              //     array[key].classList.remove("selected");
-              //   }
-              //mass.classList.add("selected");
+        // if (mass_1_1.classList.contains('selected') || mass_1_2.classList.contains('selected') || mass_1_3.classList.contains('selected') ||
+        //     mass_2_1.classList.contains('selected') || mass_2_2.classList.contains('selected') || mass_2_3.classList.contains('selected') ||
+        //     mass_3_1.classList.contains('selected') || mass_3_2.classList.contains('selected') || mass_3_3.classList.contains('selected') ){
 
+            if(popped_mass === undefined){
               var array = Array.prototype.slice.call(mass_all); //配列に変換
-              var popped_mass;
               for(var key in array){
                   if (array[key].classList.contains("selected")){
                       // 入れ替える. もしくはそのままにする.
@@ -529,11 +555,42 @@
 
 
         }else{ //マスが選択されていない場合.
+          //popped_mass = pop_mass_stack(mass); // スタックトップをpopする.
 
-          popped_mass = pop_mass_stack(mass); // popする.
           if (popped_mass !== undefined){ // マスに要素が存在するならば, それをpopして別のところに表示.
-            popped_mass.classList.add("popped");
-          }else{
+            show_all();
+            // console.log(popped_mass);
+            if (red.classList.contains("disabled")) {
+              console.log(popped_mass);
+              if (blue_return_number(popped_mass)){
+                popped_area.textContent = blue_return_number(popped_mass);
+                console.log(popped_area.textContent);
+                popped_area.classList.add("blue");
+                popped_area.classList.remove("red");
+              }
+              else{
+                push_mass_stack(mass, popped_mass);
+              }
+              show_all();
+              // popped_area.textContent = blue_return_number(popped_mass);
+            }
+            else if(blue.classList.contains("disabled")){
+              console.log(popped_mass);
+              if (red_return_number(popped_mass)){
+                popped_area.textContent = red_return_number(popped_mass);
+                console.log(popped_area.textContent);
+                popped_area.classList.add("red");
+                popped_area.classList.remove("blue");
+              }
+              else{
+                push_mass_stack(mass, popped_mass);
+              }
+              show_all();
+              // popped_area.textContent = red_return_number(popped_mass);
+            }
+
+          }
+          else{
             mass.classList.add("selected"); // マスに要素が存在しなかったら, 選択するのみ.
           }
 

@@ -378,6 +378,19 @@
   cursor: default;
 }
 
+#popped_area {
+  font-size: 20px;
+}
+
+#popped_area.red {
+  font-size: 24px;
+  color: red;
+}
+
+#popped_area.blue {
+  font-size: 24px;
+  color: blue;
+}
 
 
 
