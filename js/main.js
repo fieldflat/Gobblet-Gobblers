@@ -34,6 +34,16 @@
   var blue_mass_class = document.getElementsByClassName('blue_mass_class');
   var mass_all = document.getElementsByClassName('mass');
 
+  var mass_1_1_array = new Array();
+  var mass_1_2_array = new Array();
+  var mass_1_3_array = new Array();
+  var mass_2_1_array = new Array();
+  var mass_2_2_array = new Array();
+  var mass_2_3_array = new Array();
+  var mass_3_1_array = new Array();
+  var mass_3_2_array = new Array();
+  var mass_3_3_array = new Array();
+
   //
   // 関数定義
   //
@@ -154,6 +164,12 @@
     red.classList.remove("disabled");
   }
 
+  //
+  //
+  // is_larger
+  // less < moreだったらtrueを返し, それ以外ならfalseを返す.
+  //
+  //
   function is_larger(less, more){
     if (less < more){
       console.log(less);
@@ -168,30 +184,85 @@
       return false;
     }
   }
+
+  //
+  //
+  // push_mass_stack
+  // それぞれのマススタックに要素を追加する.
+  //
+  //
+  function push_mass_stack (mass, color){
+    if (mass === mass_1_1){
+      mass_1_1_array.push(color);
+      console.log(mass_1_1_array);
+    }
+    else if (mass === mass_1_2){
+      mass_1_2_array.push(color);
+      console.log(mass_1_2_array);
+    }
+    else if (mass === mass_1_3){
+      mass_1_3_array.push(color);
+      console.log(mass_1_3_array);
+    }
+    else if (mass === mass_2_1){
+      mass_2_1_array.push(color);
+      console.log(mass_2_1_array);
+    }
+    else if (mass === mass_2_2){
+      mass_2_2_array.push(color);
+      console.log(mass_2_2_array);
+    }
+    else if (mass === mass_2_3){
+      mass_2_3_array.push(color);
+      console.log(mass_2_3_array);
+    }
+    else if (mass === mass_3_1){
+      mass_3_1_array.push(color);
+      console.log(mass_3_1_array);
+    }
+    else if (mass === mass_3_2){
+      mass_3_2_array.push(color);
+      console.log(mass_3_2_array);
+    }
+    else if (mass === mass_3_3){
+      mass_3_3_array.push(color);
+      console.log(mass_3_3_array);
+    }
+
+  }
   //
   //
   // enter_number
-  // マスに数字をenterする.
+  // マスに数字をenterする. マスの書き込みに成功したらtrue, 失敗したらfalseを返す.
   //
   //
   function enter_number (mass, color){
 
     if (color === red_1 || color === red_2 || color === red_3 || color === red_4){
-      // if (is_larger(mass.textContent, red_return_number(color))){
+      if (is_larger(mass.textContent, red_return_number(color))){
         mass.classList.add("char_red");
         mass.classList.remove("char_blue");
         color.classList.add("disabled");
         mass.textContent = red_return_number(color);
-      // }
-      // else{
-        // return ;
-      // }
+        push_mass_stack(mass, color);
+        return true;
+      }
+      else{
+        return false;
+      }
     }
     else if (color === blue_1 || color === blue_2 || color === blue_3 || color === blue_4){
-      mass.classList.add("char_blue");
-      mass.classList.remove("char_red");
-      color.classList.add("disabled");
-      mass.textContent = blue_return_number(color);
+      if (is_larger(mass.textContent, blue_return_number(color))){
+        mass.classList.add("char_blue");
+        mass.classList.remove("char_red");
+        color.classList.add("disabled");
+        mass.textContent = blue_return_number(color);
+        push_mass_stack(mass, color);
+        return true;
+      }
+      else{
+        return false;
+      }
     }
   }
 
@@ -235,36 +306,87 @@
   //
   //
   function mass_click(mass){
+
+    //
+    // red-btnがどれか選択されている場合にマスをクリックしたとき.
+    //
     if (red_1.classList.contains("selected") || red_2.classList.contains("selected") || red_3.classList.contains("selected") || red_4.classList.contains("selected")){
       if (red_1.classList.contains("selected")){ // すでにred-btnが選択されているときに, マスをクリックしたときの動作.
-        enter_number(mass, red_1);
+        if (enter_number(mass, red_1)){
+          end_red_turn();
+        }
+        else{
+          red_1.classList.remove("selected");
+        }
       }
       else if (red_2.classList.contains("selected")){
-        enter_number(mass, red_2);
+        if (enter_number(mass, red_2)){
+          end_red_turn();
+        }
+        else{
+          red_2.classList.remove("selected");
+        }
       }
       else if (red_3.classList.contains("selected")){
-        enter_number(mass, red_3);
+        if (enter_number(mass, red_3)){
+          end_red_turn();
+        }
+        else{
+          red_3.classList.remove("selected");
+        }
       }
       else if (red_4.classList.contains("selected")){
-        enter_number(mass, red_4);
+        if (enter_number(mass, red_4)){
+          end_red_turn();
+        }
+        else{
+          red_4.classList.remove("selected");
+        }
       }
-      end_red_turn();
     }
+
+    //
+    // blue-btnがどれか選択されている場合にマスをクリックしたとき.
+    //
     else if(blue_1.classList.contains("selected") || blue_2.classList.contains("selected") || blue_3.classList.contains("selected") || blue_4.classList.contains("selected")){
       if (blue_1.classList.contains("selected")){ // すでにblue-btnが選択されているときに, マスをクリックしたときの動作.
-        enter_number(mass, blue_1);
+        if (enter_number(mass, blue_1)){
+          end_blue_turn();
+        }
+        else{
+          blue_1.classList.remove("selected");
+        }
       }
       else if (blue_2.classList.contains("selected")){
-        enter_number(mass, blue_2);
+        if (enter_number(mass, blue_2)){
+          end_blue_turn();
+        }
+        else{
+          blue_2.classList.remove("selected");
+        }
       }
       else if (blue_3.classList.contains("selected")){
-        enter_number(mass, blue_3);
+        if (enter_number(mass, blue_3)){
+          end_blue_turn();
+        }
+        else{
+          blue_3.classList.remove("selected");
+        }
       }
       else if (blue_4.classList.contains("selected")){
-        enter_number(mass, blue_4);
+        if (enter_number(mass, blue_4)){
+          end_blue_turn();
+        }
+        else{
+          blue_4.classList.remove("selected");
+        }
       }
-      end_blue_turn();
     }
+
+    //
+    // red-btn, blue-btnがいずれも選択されていない場合にマスをクリックした場合.
+    // マスが選択されている場合に, マスをクリックした場合も含む.
+    //
     else {
       if(mass.classList.contains("selected")){ // すでに選択されているマスを再びクリックしたときは, そのマスの選択を解除する.
         mass.classList.remove("selected");
