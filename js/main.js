@@ -31,6 +31,9 @@
   var counter = document.getElementById('counter');
   var popped_area = document.getElementById('popped_area');
 
+  var blue_buttons = document.getElementById('blue_buttons');
+  var red_buttons = document.getElementById('red_buttons');
+
   var red_mass_class = document.getElementsByClassName('red_mass_class');
   var blue_mass_class = document.getElementsByClassName('blue_mass_class');
   var mass_all = document.getElementsByClassName('mass');
@@ -693,73 +696,6 @@
         show_all();
       }
 
-
-      // if(mass.classList.contains("selected")){ // すでに選択されているマスを再びクリックしたときは, そのマスの選択を解除する.
-      //   mass.classList.remove("selected");
-      //   // popped_massをスタックにpushする必要がある?
-      // }
-      // else{ // 他のマスが選択されている, またはマスが選択されていない場合の処理. 一旦全てのマスのselectedを解除し, クリックされたマスのみを選択する.
-      //   popped_mass = pop_mass_stack(mass); // スタックトップをpopする.
-      //
-      //   // if (mass_1_1.classList.contains('selected') || mass_1_2.classList.contains('selected') || mass_1_3.classList.contains('selected') ||
-      //   //     mass_2_1.classList.contains('selected') || mass_2_2.classList.contains('selected') || mass_2_3.classList.contains('selected') ||
-      //   //     mass_3_1.classList.contains('selected') || mass_3_2.classList.contains('selected') || mass_3_3.classList.contains('selected') ){
-      //
-      //       if(popped_mass === undefined){
-      //         var array = Array.prototype.slice.call(mass_all); //配列に変換
-      //         for(var key in array){
-      //             if (array[key].classList.contains("selected")){
-      //                 // 入れ替える. もしくはそのままにする.
-      //             }
-      //             else {
-      //               array[key].classList.remove("selected");
-      //             }
-      //           }
-      //
-      //
-      //   }else{ //マスが選択されていない場合.
-      //     //popped_mass = pop_mass_stack(mass); // スタックトップをpopする.
-      //
-      //     if (popped_mass !== undefined){ // マスに要素が存在するならば, それをpopして別のところに表示.
-      //       show_all();
-      //       // console.log(popped_mass);
-      //       if (red.classList.contains("disabled")) {
-      //         console.log(popped_mass);
-      //         if (blue_return_number(popped_mass)){
-      //           popped_area.textContent = blue_return_number(popped_mass);
-      //           console.log(popped_area.textContent);
-      //           popped_area.classList.add("blue");
-      //           popped_area.classList.remove("red");
-      //         }
-      //         else{
-      //           push_mass_stack(mass, popped_mass);
-      //         }
-      //         show_all();
-      //         // popped_area.textContent = blue_return_number(popped_mass);
-      //       }
-      //       else if(blue.classList.contains("disabled")){
-      //         console.log(popped_mass);
-      //         if (red_return_number(popped_mass)){
-      //           popped_area.textContent = red_return_number(popped_mass);
-      //           console.log(popped_area.textContent);
-      //           popped_area.classList.add("red");
-      //           popped_area.classList.remove("blue");
-      //         }
-      //         else{
-      //           push_mass_stack(mass, popped_mass);
-      //         }
-      //         show_all();
-      //         // popped_area.textContent = red_return_number(popped_mass);
-      //       }
-      //
-      //     }
-      //     else{
-      //       mass.classList.add("selected"); // マスに要素が存在しなかったら, 選択するのみ.
-      //     }
-      //
-      //   }
-      //
-      // }
     } // else end
 
 
