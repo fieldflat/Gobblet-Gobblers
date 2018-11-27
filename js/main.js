@@ -228,8 +228,126 @@
       mass_3_3_array.push(color);
       console.log(mass_3_3_array);
     }
+  }
+
+  //
+  //
+  // pop_mass_stack
+  // マススタックから, スタックトップの要素を取得する.
+  //
+  //
+  function pop_mass_stack(mass){
+    var return_item;
+    if (mass === mass_1_1){
+      return mass_1_1_array.pop();
+    }
+    else if (mass === mass_1_2){
+      return mass_1_2_array.pop();
+    }
+    else if (mass === mass_1_3){
+      return mass_1_3_array.pop();
+    }
+    else if (mass === mass_2_1){
+      return mass_2_1_array.pop();
+    }
+    else if (mass === mass_2_2){
+      return mass_2_2_array.pop();
+    }
+    else if (mass === mass_2_3){
+      return mass_2_3_array.pop();
+    }
+    else if (mass === mass_3_1){
+      return mass_3_1_array.pop();
+    }
+    else if (mass === mass_3_2){
+      return mass_3_2_array.pop();
+    }
+    else if (mass === mass_3_3){
+      return mass_3_3_array.pop();
+    }
 
   }
+
+  //
+  //
+  // show_mass
+  // マスに表示される値を, スタックを用いて表示する.
+  //
+  //
+  function show_mass(top_item, where){
+    console.log(top_item);
+    if (top_item === undefined){
+      where.textContent = "";
+    }
+    else if(top_item === red_1 || top_item === red_2 || top_item === red_3 || top_item === red_4){
+      where.classList.add("char_red");
+      where.classList.remove("char_blue");
+
+      if (top_item === red_1){
+        where.textContent = 1;
+        red_1.classList.add("disabled");
+      }
+      else if(top_item === red_2){
+        where.textContent = 2;
+        red_2.classList.add("disabled");
+      }
+      else if(top_item === red_3){
+        where.textContent = 3;
+        red_3.classList.add("disabled");
+      }
+      else if(top_item === red_4){
+        where.textContent = 4;
+        red_4.classList.add("disabled");
+      }
+    }
+
+    else if(top_item === blue_1 || top_item === blue_2 || top_item === blue_3 || top_item === blue_4 ){
+      where.classList.add("char_blue");
+      where.classList.remove("char_add");
+
+      if (top_item === blue_1){
+        where.textContent = 1;
+        blue_1.classList.add("disabled");
+      }
+      else if(top_item === blue_2){
+        where.textContent = 2;
+        blue_2.classList.add("disabled");
+      }
+      else if(top_item === blue_3){
+        where.textContent = 3;
+        blue_3.classList.add("disabled");
+      }
+      else if(top_item === blue_4){
+        where.textContent = 4;
+        blue_4.classList.add("disabled");
+      }
+    }
+
+  }
+
+  //
+  //
+  // show_all
+  //
+  //
+  function show_all(){
+    //
+    //
+    // マスの表示
+    //
+    //
+    show_mass(mass_1_1_array.slice(-1)[0], mass_1_1);
+    show_mass(mass_1_2_array.slice(-1)[0], mass_1_2);
+    show_mass(mass_1_3_array.slice(-1)[0], mass_1_3);
+    show_mass(mass_2_1_array.slice(-1)[0], mass_2_1);
+    show_mass(mass_2_2_array.slice(-1)[0], mass_2_2);
+    show_mass(mass_2_3_array.slice(-1)[0], mass_2_3);
+    show_mass(mass_3_1_array.slice(-1)[0], mass_3_1);
+    show_mass(mass_3_2_array.slice(-1)[0], mass_3_2);
+    show_mass(mass_3_3_array.slice(-1)[0], mass_3_3);
+  }
+
+
   //
   //
   // enter_number
@@ -240,27 +358,23 @@
 
     if (color === red_1 || color === red_2 || color === red_3 || color === red_4){
       if (is_larger(mass.textContent, red_return_number(color))){
-        mass.classList.add("char_red");
-        mass.classList.remove("char_blue");
-        color.classList.add("disabled");
-        mass.textContent = red_return_number(color);
         push_mass_stack(mass, color);
+        show_all();
         return true;
       }
       else{
+        //show_all();
         return false;
       }
     }
     else if (color === blue_1 || color === blue_2 || color === blue_3 || color === blue_4){
       if (is_larger(mass.textContent, blue_return_number(color))){
-        mass.classList.add("char_blue");
-        mass.classList.remove("char_red");
-        color.classList.add("disabled");
-        mass.textContent = blue_return_number(color);
         push_mass_stack(mass, color);
+        show_all();
         return true;
       }
       else{
+        //show_all();
         return false;
       }
     }
@@ -393,11 +507,38 @@
       }
       else{ // 他のマスが選択されている, またはマスが選択されていない場合の処理. 一旦全てのマスのselectedを解除し, クリックされたマスのみを選択する.
 
-        var array = Array.prototype.slice.call(mass_all); //配列に変換
-        for(var key in array){
-            array[key].classList.remove("selected");
+        if (mass_1_1.classList.contains('selected') || mass_1_2.classList.contains('selected') || mass_1_3.classList.contains('selected') ||
+            mass_2_1.classList.contains('selected') || mass_2_2.classList.contains('selected') || mass_2_3.classList.contains('selected') ||
+            mass_3_1.classList.contains('selected') || mass_3_2.classList.contains('selected') || mass_3_3.classList.contains('selected') ){
+              // var array = Array.prototype.slice.call(mass_all); //配列に変換
+              // for(var key in array){
+              //     array[key].classList.remove("selected");
+              //   }
+              //mass.classList.add("selected");
+
+              var array = Array.prototype.slice.call(mass_all); //配列に変換
+              var popped_mass;
+              for(var key in array){
+                  if (array[key].classList.contains("selected")){
+                      // 入れ替える. もしくはそのままにする.
+                  }
+                  else {
+                    array[key].classList.remove("selected");
+                  }
+                }
+
+
+        }else{ //マスが選択されていない場合.
+
+          popped_mass = pop_mass_stack(mass); // popする.
+          if (popped_mass !== undefined){ // マスに要素が存在するならば, それをpopして別のところに表示.
+            popped_mass.classList.add("popped");
+          }else{
+            mass.classList.add("selected"); // マスに要素が存在しなかったら, 選択するのみ.
+          }
+
         }
-        mass.classList.add("selected");
+
       }
     }
   }
@@ -408,7 +549,6 @@
   // クリック時の動作
   //
   //
-
   red_1.addEventListener('click', function(){
     btn_click(red_1);
   });
@@ -528,6 +668,9 @@
   mass_3_3.addEventListener('click', function(){
     mass_click(mass_3_3);
   });
+
+
+
 
 
 })();
