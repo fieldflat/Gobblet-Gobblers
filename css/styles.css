@@ -29,25 +29,42 @@
   background-color: red;
 }
 
-#red.disabled {
+/* #red.disabled {
   opacity: 0.3;
-}
+} */
 
 #red_1.selected {
   background-color: rgb(96, 205, 98);
+}
+
+#red_1.disabled {
+  opacity: 0.3;
 }
 
 #red_2.selected {
   background-color: rgb(96, 205, 98);
 }
 
+#red_2.disabled {
+  opacity: 0.3;
+}
+
 #red_3.selected {
   background-color: rgb(96, 205, 98);
+}
+
+#red_3.disabled {
+  opacity: 0.3;
 }
 
 #red_4.selected {
   background-color: rgb(96, 205, 98);
 }
+
+#red_4.disabled {
+  opacity: 0.3;
+}
+
 
 
 /* */
@@ -64,61 +81,219 @@
   color: blue;
 }
 
-#blue.disabled {
+/* #blue.disabled {
   opacity: 0.3;
 }
+
+#blue.disabled:hover {
+  background-color: #fff;
+} */
 
 #blue_1.selected {
   background-color: rgb(96, 205, 98);
 }
 
+#blue_1.disabled {
+  opacity: 0.3;
+}
+
+
 #blue_2.selected {
   background-color: rgb(96, 205, 98);
 }
+
+#blue_2.disabled {
+  opacity: 0.3;
+}
+
 
 #blue_3.selected {
   background-color: rgb(96, 205, 98);
 }
 
+#blue_3.disabled {
+  opacity: 0.3;
+}
+
+
 #blue_4.selected {
   background-color: rgb(96, 205, 98);
 }
+
+#blue_4.disabled {
+  opacity: 0.3;
+}
+
 
 #mass_1_1.selected {
   background-color: rgb(96, 205, 98);
 }
 
+#mass_1_1.char_red {
+  text-align: center;
+  color: red;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#mass_1_1.char_blue{
+  text-align: center;
+  color: blue;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+
 #mass_1_2.selected {
   background-color: rgb(96, 205, 98);
+}
+
+#mass_1_2.char_red {
+  text-align: center;
+  color: red;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#mass_1_2.char_blue{
+  text-align: center;
+  color: blue;
+  font-size: 32px;
+  font-weight: bold;
 }
 
 #mass_1_3.selected {
   background-color: rgb(96, 205, 98);
 }
 
+#mass_1_3.char_red {
+  text-align: center;
+  color: red;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#mass_1_3.char_blue{
+  text-align: center;
+  color: blue;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+
 #mass_2_1.selected {
   background-color: rgb(96, 205, 98);
 }
+
+#mass_2_1.char_red {
+  text-align: center;
+  color: red;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#mass_2_1.char_blue{
+  text-align: center;
+  color: blue;
+  font-size: 32px;
+  font-weight: bold;
+}
+
 
 #mass_2_2.selected {
   background-color: rgb(96, 205, 98);
 }
 
+#mass_2_2.char_red {
+  text-align: center;
+  color: red;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#mass_2_2.char_blue{
+  text-align: center;
+  color: blue;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+
 #mass_2_3.selected {
   background-color: rgb(96, 205, 98);
 }
+
+#mass_2_3.char_red {
+  text-align: center;
+  color: red;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#mass_2_3.char_blue{
+  text-align: center;
+  color: blue;
+  font-size: 32px;
+  font-weight: bold;
+}
+
 
 #mass_3_1.selected {
   background-color: rgb(96, 205, 98);
 }
 
+#mass_3_1.char_red {
+  text-align: center;
+  color: red;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#mass_3_1.char_blue{
+  text-align: center;
+  color: blue;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+
 #mass_3_2.selected {
   background-color: rgb(96, 205, 98);
 }
 
+#mass_3_2.char_red {
+  text-align: center;
+  color: red;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#mass_3_2.char_blue{
+  text-align: center;
+  color: blue;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+
 #mass_3_3.selected {
   background-color: rgb(96, 205, 98);
 }
+
+#mass_3_3.char_red {
+  text-align: center;
+  color: red;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+#mass_3_3.char_blue{
+  text-align: center;
+  color: blue;
+  font-size: 32px;
+  font-weight: bold;
+}
+
 
 
 
@@ -136,6 +311,74 @@
   background-color: #aaa;
   cursor: pointer;
 }
+
+#red.disabled {
+  opacity: 0.3;
+}
+
+#red.disabled .red_turn {
+  background-color: #fff;
+}
+
+#red.disabled p:hover {
+  background-color: #eee;
+  cursor: default;
+}
+
+#blue.disabled {
+  opacity: 0.3;
+}
+
+#blue.disabled .blue_turn {
+  background-color: #fff;
+}
+
+#blue.disabled p:hover {
+  background-color: #eee;
+  cursor: default;
+}
+
+#red_1.disabled {
+  background-color: #eee;
+  cursor: default;
+}
+
+#red_2.disabled {
+  background-color: #eee;
+  cursor: default;
+}
+
+#red_3.disabled {
+  background-color: #eee;
+  cursor: default;
+}
+
+#red_4.disabled {
+  background-color: #eee;
+  cursor: default;
+}
+
+#blue_1.disabled {
+  background-color: #eee;
+  cursor: default;
+}
+
+#blue_2.disabled {
+  background-color: #eee;
+  cursor: default;
+}
+
+#blue_3.disabled {
+  background-color: #eee;
+  cursor: default;
+}
+
+#blue_4.disabled {
+  background-color: #eee;
+  cursor: default;
+}
+
+
 
 
 /* */
