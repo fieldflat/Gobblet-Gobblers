@@ -1,0 +1,164 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+/* */
+/* about section */
+/* */
+.section {
+  overflow: auto;
+  text-align: center;
+  margin: 20px 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* */
+/* about red-section */
+/* */
+.red_section{
+  color: red;
+}
+
+.red_turn {
+  width: 50%;
+  height: 20px;
+  margin: 0 auto;
+  background-color: red;
+}
+
+#red.disabled {
+  opacity: 0.3;
+}
+
+#red_1.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+#red_2.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+#red_3.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+#red_4.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+
+/* */
+/* about blue-section */
+/* */
+.blue_turn {
+  width: 50%;
+  height: 20px;
+  margin: 0 auto;
+  background-color: blue;
+}
+
+.blue_section{
+  color: blue;
+}
+
+#blue.disabled {
+  opacity: 0.3;
+}
+
+#blue_1.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+#blue_2.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+#blue_3.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+#blue_4.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+#mass_1_1.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+#mass_1_2.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+#mass_1_3.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+#mass_2_1.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+#mass_2_2.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+#mass_2_3.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+#mass_3_1.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+#mass_3_2.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+#mass_3_3.selected {
+  background-color: rgb(96, 205, 98);
+}
+
+
+
+/* */
+/* about section-all */
+/* */
+.section p {
+  float: left;
+  width: 20%;
+  background-color: #eee;
+  margin-right: 5%;
+}
+
+.section p:hover {
+  background-color: #aaa;
+  cursor: pointer;
+}
+
+
+/* */
+/* about square */
+/* */
+.square {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.square table {
+  margin: 0 auto;
+}
+
+td {
+  width: 100px;
+  height: 100px;
+}
+
+.mass {
+  cursor: pointer;
+}
+
+.mass:hover {
+  background-color: rgba(235, 235, 39, 0.5);
+}
