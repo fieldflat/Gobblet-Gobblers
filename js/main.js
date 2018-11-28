@@ -27,6 +27,7 @@
   var mass_3_1 = document.getElementById('mass_3_1');
   var mass_3_2 = document.getElementById('mass_3_2');
   var mass_3_3 = document.getElementById('mass_3_3');
+  var square = document.getElementById('square');
 
   var counter = document.getElementById('counter');
   var popped_area = document.getElementById('popped_area');
@@ -37,6 +38,8 @@
   var red_mass_class = document.getElementsByClassName('red_mass_class');
   var blue_mass_class = document.getElementsByClassName('blue_mass_class');
   var mass_all = document.getElementsByClassName('mass');
+
+  var reset = document.getElementById('reset');
 
   var mass_1_1_array = new Array();
   var mass_1_2_array = new Array();
@@ -434,6 +437,13 @@
   function mass_click(mass){
 
     //
+    // 結着がついたら選択させない.
+    //
+    if(square.classList.contains("disabled")){
+      return ;
+    }
+
+    //
     // red-btnがどれか選択されている場合にマスをクリックしたとき.
     //
     if (red_1.classList.contains("selected") || red_2.classList.contains("selected") || red_3.classList.contains("selected") || red_4.classList.contains("selected")){
@@ -748,6 +758,11 @@
       popped_area.classList.add("blue");
       red.classList.add("disabled");
       blue.classList.add("disabled");
+      square.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_1_1.classList.add("blue_end");
+      mass_1_2.classList.add("blue_end");
+      mass_1_3.classList.add("blue_end");
     }
 
     else if (mass_1_1_color == "blue" && mass_2_1_color == "blue" && mass_3_1_color == "blue"){
@@ -755,6 +770,10 @@
       popped_area.classList.add("blue");
       red.classList.add("disabled");
       blue.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_1_1.classList.add("blue_end");
+      mass_2_1.classList.add("blue_end");
+      mass_3_1.classList.add("blue_end");
     }
 
     else if (mass_2_1_color == "blue" && mass_2_2_color == "blue" && mass_2_3_color == "blue"){
@@ -762,6 +781,10 @@
       popped_area.classList.add("blue");
       red.classList.add("disabled");
       blue.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_2_1.classList.add("blue_end");
+      mass_2_2.classList.add("blue_end");
+      mass_2_3.classList.add("blue_end");
     }
 
     else if (mass_1_2_color == "blue" && mass_2_2_color == "blue" && mass_3_2_color == "blue"){
@@ -769,6 +792,10 @@
       popped_area.classList.add("blue");
       red.classList.add("disabled");
       blue.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_1_2.classList.add("blue_end");
+      mass_2_2.classList.add("blue_end");
+      mass_3_2.classList.add("blue_end");
     }
 
     else if (mass_3_1_color == "blue" && mass_3_2_color == "blue" && mass_3_3_color == "blue"){
@@ -776,6 +803,10 @@
       popped_area.classList.add("blue");
       red.classList.add("disabled");
       blue.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_3_1.classList.add("blue_end");
+      mass_3_2.classList.add("blue_end");
+      mass_3_3.classList.add("blue_end");
     }
 
     else if (mass_1_3_color == "blue" && mass_2_3_color == "blue" && mass_3_3_color == "blue"){
@@ -783,6 +814,10 @@
       popped_area.classList.add("blue");
       red.classList.add("disabled");
       blue.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_1_3.classList.add("blue_end");
+      mass_2_3.classList.add("blue_end");
+      mass_3_3.classList.add("blue_end");
     }
 
     else if (mass_1_1_color == "blue" && mass_2_2_color == "blue" && mass_3_3_color == "blue"){
@@ -790,6 +825,10 @@
       popped_area.classList.add("blue");
       red.classList.add("disabled");
       blue.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_1_1.classList.add("blue_end");
+      mass_2_2.classList.add("blue_end");
+      mass_3_3.classList.add("blue_end");
     }
 
     else if (mass_1_3_color == "blue" && mass_2_2_color == "blue" && mass_3_1_color == "blue"){
@@ -797,6 +836,10 @@
       popped_area.classList.add("blue");
       red.classList.add("disabled");
       blue.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_1_3.classList.add("blue_end");
+      mass_2_2.classList.add("blue_end");
+      mass_3_1.classList.add("blue_end");
     }
 
 
@@ -808,6 +851,10 @@
       popped_area.classList.add("red");
       blue.classList.add("disabled");
       red.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_1_1.classList.add("red_end");
+      mass_1_2.classList.add("red_end");
+      mass_1_3.classList.add("red_end");
     }
 
     else if (mass_1_1_color == "red" && mass_2_1_color == "red" && mass_3_1_color == "red"){
@@ -815,6 +862,10 @@
       popped_area.classList.add("red");
       blue.classList.add("disabled");
       red.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_1_1.classList.add("red_end");
+      mass_2_1.classList.add("red_end");
+      mass_3_1.classList.add("red_end");
     }
 
     else if (mass_2_1_color == "red" && mass_2_2_color == "red" && mass_2_3_color == "red"){
@@ -822,6 +873,10 @@
       popped_area.classList.add("red");
       blue.classList.add("disabled");
       red.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_2_1.classList.add("red_end");
+      mass_2_2.classList.add("red_end");
+      mass_2_3.classList.add("red_end");
     }
 
     else if (mass_1_2_color == "red" && mass_2_2_color == "red" && mass_3_2_color == "red"){
@@ -829,6 +884,10 @@
       popped_area.classList.add("red");
       blue.classList.add("disabled");
       red.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_1_2.classList.add("red_end");
+      mass_2_2.classList.add("red_end");
+      mass_3_2.classList.add("red_end");
     }
 
     else if (mass_3_1_color == "red" && mass_3_2_color == "red" && mass_3_3_color == "red"){
@@ -836,6 +895,10 @@
       popped_area.classList.add("red");
       blue.classList.add("disabled");
       red.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_3_1.classList.add("red_end");
+      mass_3_2.classList.add("red_end");
+      mass_3_3.classList.add("red_end");
     }
 
     else if (mass_1_3_color == "red" && mass_2_3_color == "red" && mass_3_3_color == "red"){
@@ -843,6 +906,10 @@
       popped_area.classList.add("red");
       blue.classList.add("disabled");
       red.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_1_3.classList.add("red_end");
+      mass_2_3.classList.add("red_end");
+      mass_3_3.classList.add("red_end");
     }
 
     else if (mass_1_1_color == "red" && mass_2_2_color == "red" && mass_3_3_color == "red"){
@@ -850,6 +917,10 @@
       popped_area.classList.add("red");
       blue.classList.add("disabled");
       red.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_1_1.classList.add("red_end");
+      mass_2_2.classList.add("red_end");
+      mass_3_3.classList.add("red_end");
     }
 
     else if (mass_1_3_color == "red" && mass_2_2_color == "red" && mass_3_1_color == "red"){
@@ -857,6 +928,10 @@
       popped_area.classList.add("red");
       blue.classList.add("disabled");
       red.classList.add("disabled");
+      square.classList.add("disabled");
+      mass_1_3.classList.add("red_end");
+      mass_2_2.classList.add("red_end");
+      mass_3_1.classList.add("red_end");
     }
 
   }
@@ -995,6 +1070,58 @@
     check_line();
   });
 
+  reset.addEventListener('click', function(){
+    mass_1_1_array = [];
+    mass_1_2_array = [];
+    mass_1_3_array = [];
+    mass_2_1_array = [];
+    mass_2_2_array = [];
+    mass_2_3_array = [];
+    mass_3_1_array = [];
+    mass_3_2_array = [];
+    mass_3_3_array = [];
+    red_1.classList.remove("disabled");
+    red_2.classList.remove("disabled");
+    red_3.classList.remove("disabled");
+    red_4.classList.remove("disabled");
+    blue_1.classList.remove("disabled");
+    blue_2.classList.remove("disabled");
+    blue_3.classList.remove("disabled");
+    blue_4.classList.remove("disabled");
+
+    mass_1_1.classList.remove("red_end");
+    mass_1_2.classList.remove("red_end");
+    mass_1_3.classList.remove("red_end");
+    mass_2_1.classList.remove("red_end");
+    mass_2_2.classList.remove("red_end");
+    mass_2_3.classList.remove("red_end");
+    mass_3_1.classList.remove("red_end");
+    mass_3_2.classList.remove("red_end");
+    mass_3_3.classList.remove("red_end");
+
+    mass_1_1.classList.remove("blue_end");
+    mass_1_2.classList.remove("blue_end");
+    mass_1_3.classList.remove("blue_end");
+    mass_2_1.classList.remove("blue_end");
+    mass_2_2.classList.remove("blue_end");
+    mass_2_3.classList.remove("blue_end");
+    mass_3_1.classList.remove("blue_end");
+    mass_3_2.classList.remove("blue_end");
+    mass_3_3.classList.remove("blue_end");
+
+    square.classList.remove("disabled");
+    popped_area.textContent = "Popped Area";
+    popped_area.classList.remove("red");
+    popped_area.classList.remove("blue");
+
+    show_all();
+
+    if(blue.classList.contains("disabled")){
+      blue.classList.remove("disabled");
+      red.classList.add("disabled");
+    }
+
+  });
 
 
 

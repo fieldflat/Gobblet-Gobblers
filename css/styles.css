@@ -4,6 +4,11 @@
   margin-top: 30px;
 }
 
+.titleName {
+  font-size: 24px;
+  text-align: center;
+}
+
 /* */
 /* about section */
 /* */
@@ -143,6 +148,15 @@
   font-weight: bold;
 }
 
+#mass_1_1.red_end{
+  background-color: rgba(223, 30, 30, 0.64);
+}
+
+#mass_1_1.blue_end{
+  background-color: rgba(23, 63, 231, 0.65);
+}
+
+
 
 #mass_1_2.selected {
   background-color: rgb(96, 205, 98);
@@ -162,6 +176,15 @@
   font-weight: bold;
 }
 
+#mass_1_2.red_end{
+  background-color: rgba(223, 30, 30, 0.64);
+}
+
+#mass_1_2.blue_end{
+  background-color: rgba(23, 63, 231, 0.65);
+}
+
+
 #mass_1_3.selected {
   background-color: rgb(96, 205, 98);
 }
@@ -179,6 +202,15 @@
   font-size: 32px;
   font-weight: bold;
 }
+
+#mass_1_3.red_end{
+  background-color: rgba(223, 30, 30, 0.64);
+}
+
+#mass_1_3.blue_end{
+  background-color: rgba(23, 63, 231, 0.65);
+}
+
 
 
 #mass_2_1.selected {
@@ -199,6 +231,15 @@
   font-weight: bold;
 }
 
+#mass_2_1.red_end{
+  background-color: rgba(223, 30, 30, 0.64);
+}
+
+#mass_2_1.blue_end{
+  background-color: rgba(23, 63, 231, 0.65);
+}
+
+
 
 #mass_2_2.selected {
   background-color: rgb(96, 205, 98);
@@ -217,6 +258,15 @@
   font-size: 32px;
   font-weight: bold;
 }
+
+#mass_2_2.red_end{
+  background-color: rgba(223, 30, 30, 0.64);
+}
+
+#mass_2_2.blue_end{
+  background-color: rgba(23, 63, 231, 0.65);
+}
+
 
 
 #mass_2_3.selected {
@@ -237,6 +287,15 @@
   font-weight: bold;
 }
 
+#mass_2_3.red_end{
+  background-color: rgba(223, 30, 30, 0.64);
+}
+
+#mass_2_3.blue_end{
+  background-color: rgba(23, 63, 231, 0.65);
+}
+
+
 
 #mass_3_1.selected {
   background-color: rgb(96, 205, 98);
@@ -254,6 +313,14 @@
   color: blue;
   font-size: 32px;
   font-weight: bold;
+}
+
+#mass_3_1.red_end{
+  background-color: rgba(223, 30, 30, 0.64);
+}
+
+#mass_3_1.blue_end{
+  background-color: rgba(23, 63, 231, 0.65);
 }
 
 
@@ -275,6 +342,14 @@
   font-weight: bold;
 }
 
+#mass_3_2.red_end{
+  background-color: rgba(223, 30, 30, 0.64);
+}
+
+#mass_3_2.blue_end{
+  background-color: rgba(23, 63, 231, 0.65);
+}
+
 
 #mass_3_3.selected {
   background-color: rgb(96, 205, 98);
@@ -292,6 +367,14 @@
   color: blue;
   font-size: 32px;
   font-weight: bold;
+}
+
+#mass_3_3.red_end{
+  background-color: rgba(223, 30, 30, 0.64);
+}
+
+#mass_3_3.blue_end{
+  background-color: rgba(23, 63, 231, 0.65);
 }
 
 
@@ -379,7 +462,12 @@
 }
 
 #popped_area {
+  float: left;
   font-size: 20px;
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #ccc;
 }
 
 #popped_area.red {
@@ -418,4 +506,14 @@ td {
 
 .mass:hover {
   background-color: rgba(235, 235, 39, 0.5);
+}
+
+#reset {
+  cursor: pointer;
+  font-size: 20px;
+  float: right;
+  display: inline-block;
+  background-color: #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
 }
