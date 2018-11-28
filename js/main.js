@@ -479,6 +479,8 @@
           red_4.classList.remove("selected");
         }
       }
+
+      check_line();
     }
 
     //
@@ -517,6 +519,7 @@
           blue_4.classList.remove("selected");
         }
       }
+      check_line();
     }
 
     //
@@ -524,11 +527,6 @@
     // マスが選択されている場合に, マスをクリックした場合も含む.
     //
     else {
-
-
-      //
-      // やること
-      //
 
       // 選択されたマスが存在しないとき...
       // 1. 何も数字がないマスをクリックしたとき
@@ -640,18 +638,6 @@
         // 2. 選択されていないマスをクリックしたとき
         //    -> popped_areaにある数字をクリックしたマスに戻し, 相手のターンとする. さらに, 自分の1-4までのボタンを選択不可能にする.
         else{
-          // enter_number(mass, popped_mass);
-          // push_mass_stack(mass, popped_mass);
-
-          // mass_1_1.classList.remove("selected");
-          // mass_1_2.classList.remove("selected");
-          // mass_1_3.classList.remove("selected");
-          // mass_2_1.classList.remove("selected");
-          // mass_2_2.classList.remove("selected");
-          // mass_2_3.classList.remove("selected");
-          // mass_3_1.classList.remove("selected");
-          // mass_3_2.classList.remove("selected");
-          // mass_3_3.classList.remove("selected");
 
           if (popped_mass == blue_1 || popped_mass == blue_2 || popped_mass == blue_3 || popped_mass == blue_4){
             popped_area.classList.remove("blue");
@@ -704,6 +690,7 @@
         mass_3_3.classList.remove("selected");
 
         show_all();
+        check_line();
       }
 
     } // else end
@@ -750,93 +737,79 @@
     var mass_3_2_color = return_color(mass_3_2_array.slice(-1)[0]);
     var mass_3_3_color = return_color(mass_3_3_array.slice(-1)[0]);
 
+    var blue_win = false;
+    var red_win = false;
+
     //
     // BLUE
     //
     if (mass_1_1_color == "blue" && mass_1_2_color == "blue" && mass_1_3_color == "blue"){
-      popped_area.textContent = "Congrats blue!!";
-      popped_area.classList.add("blue");
-      red.classList.add("disabled");
-      blue.classList.add("disabled");
-      square.classList.add("disabled");
-      square.classList.add("disabled");
+
+      blue_win = true;
+
       mass_1_1.classList.add("blue_end");
       mass_1_2.classList.add("blue_end");
       mass_1_3.classList.add("blue_end");
     }
 
-    else if (mass_1_1_color == "blue" && mass_2_1_color == "blue" && mass_3_1_color == "blue"){
-      popped_area.textContent = "Congrats blue!!";
-      popped_area.classList.add("blue");
-      red.classList.add("disabled");
-      blue.classList.add("disabled");
-      square.classList.add("disabled");
+    if (mass_1_1_color == "blue" && mass_2_1_color == "blue" && mass_3_1_color == "blue"){
+
+      blue_win = true;
+
       mass_1_1.classList.add("blue_end");
       mass_2_1.classList.add("blue_end");
       mass_3_1.classList.add("blue_end");
     }
 
-    else if (mass_2_1_color == "blue" && mass_2_2_color == "blue" && mass_2_3_color == "blue"){
-      popped_area.textContent = "Congrats blue!!";
-      popped_area.classList.add("blue");
-      red.classList.add("disabled");
-      blue.classList.add("disabled");
-      square.classList.add("disabled");
+    if (mass_2_1_color == "blue" && mass_2_2_color == "blue" && mass_2_3_color == "blue"){
+
+      blue_win = true;
+
       mass_2_1.classList.add("blue_end");
       mass_2_2.classList.add("blue_end");
       mass_2_3.classList.add("blue_end");
     }
 
-    else if (mass_1_2_color == "blue" && mass_2_2_color == "blue" && mass_3_2_color == "blue"){
-      popped_area.textContent = "Congrats blue!!";
-      popped_area.classList.add("blue");
-      red.classList.add("disabled");
-      blue.classList.add("disabled");
-      square.classList.add("disabled");
+    if (mass_1_2_color == "blue" && mass_2_2_color == "blue" && mass_3_2_color == "blue"){
+
+      blue_win = true;
+
       mass_1_2.classList.add("blue_end");
       mass_2_2.classList.add("blue_end");
       mass_3_2.classList.add("blue_end");
     }
 
-    else if (mass_3_1_color == "blue" && mass_3_2_color == "blue" && mass_3_3_color == "blue"){
-      popped_area.textContent = "Congrats blue!!";
-      popped_area.classList.add("blue");
-      red.classList.add("disabled");
-      blue.classList.add("disabled");
-      square.classList.add("disabled");
+    if (mass_3_1_color == "blue" && mass_3_2_color == "blue" && mass_3_3_color == "blue"){
+
+      blue_win = true;
+
       mass_3_1.classList.add("blue_end");
       mass_3_2.classList.add("blue_end");
       mass_3_3.classList.add("blue_end");
     }
 
-    else if (mass_1_3_color == "blue" && mass_2_3_color == "blue" && mass_3_3_color == "blue"){
-      popped_area.textContent = "Congrats blue!!";
-      popped_area.classList.add("blue");
-      red.classList.add("disabled");
-      blue.classList.add("disabled");
-      square.classList.add("disabled");
+    if (mass_1_3_color == "blue" && mass_2_3_color == "blue" && mass_3_3_color == "blue"){
+
+      blue_win = true;
+
       mass_1_3.classList.add("blue_end");
       mass_2_3.classList.add("blue_end");
       mass_3_3.classList.add("blue_end");
     }
 
-    else if (mass_1_1_color == "blue" && mass_2_2_color == "blue" && mass_3_3_color == "blue"){
-      popped_area.textContent = "Congrats blue!!";
-      popped_area.classList.add("blue");
-      red.classList.add("disabled");
-      blue.classList.add("disabled");
-      square.classList.add("disabled");
+    if (mass_1_1_color == "blue" && mass_2_2_color == "blue" && mass_3_3_color == "blue"){
+
+      blue_win = true;
+
       mass_1_1.classList.add("blue_end");
       mass_2_2.classList.add("blue_end");
       mass_3_3.classList.add("blue_end");
     }
 
-    else if (mass_1_3_color == "blue" && mass_2_2_color == "blue" && mass_3_1_color == "blue"){
-      popped_area.textContent = "Congrats blue!!";
-      popped_area.classList.add("blue");
-      red.classList.add("disabled");
-      blue.classList.add("disabled");
-      square.classList.add("disabled");
+    if (mass_1_3_color == "blue" && mass_2_2_color == "blue" && mass_3_1_color == "blue"){
+
+      blue_win = true;
+
       mass_1_3.classList.add("blue_end");
       mass_2_2.classList.add("blue_end");
       mass_3_1.classList.add("blue_end");
@@ -846,92 +819,101 @@
     //
     // RED
     //
-    else if (mass_1_1_color == "red" && mass_1_2_color == "red" && mass_1_3_color == "red"){
-      popped_area.textContent = "Congrats red!!";
-      popped_area.classList.add("red");
-      blue.classList.add("disabled");
-      red.classList.add("disabled");
-      square.classList.add("disabled");
+    if (mass_1_1_color == "red" && mass_1_2_color == "red" && mass_1_3_color == "red"){
+
+      red_win = true;
+
       mass_1_1.classList.add("red_end");
       mass_1_2.classList.add("red_end");
       mass_1_3.classList.add("red_end");
     }
 
-    else if (mass_1_1_color == "red" && mass_2_1_color == "red" && mass_3_1_color == "red"){
-      popped_area.textContent = "Congrats red!!";
-      popped_area.classList.add("red");
-      blue.classList.add("disabled");
-      red.classList.add("disabled");
-      square.classList.add("disabled");
+    if (mass_1_1_color == "red" && mass_2_1_color == "red" && mass_3_1_color == "red"){
+
+      red_win = true;
+
       mass_1_1.classList.add("red_end");
       mass_2_1.classList.add("red_end");
       mass_3_1.classList.add("red_end");
     }
 
-    else if (mass_2_1_color == "red" && mass_2_2_color == "red" && mass_2_3_color == "red"){
-      popped_area.textContent = "Congrats red!!";
-      popped_area.classList.add("red");
-      blue.classList.add("disabled");
-      red.classList.add("disabled");
-      square.classList.add("disabled");
+    if (mass_2_1_color == "red" && mass_2_2_color == "red" && mass_2_3_color == "red"){
+
+      red_win = true;
+
       mass_2_1.classList.add("red_end");
       mass_2_2.classList.add("red_end");
       mass_2_3.classList.add("red_end");
     }
 
-    else if (mass_1_2_color == "red" && mass_2_2_color == "red" && mass_3_2_color == "red"){
-      popped_area.textContent = "Congrats red!!";
-      popped_area.classList.add("red");
-      blue.classList.add("disabled");
-      red.classList.add("disabled");
-      square.classList.add("disabled");
+    if (mass_1_2_color == "red" && mass_2_2_color == "red" && mass_3_2_color == "red"){
+
+      red_win = true;
+
       mass_1_2.classList.add("red_end");
       mass_2_2.classList.add("red_end");
       mass_3_2.classList.add("red_end");
     }
 
-    else if (mass_3_1_color == "red" && mass_3_2_color == "red" && mass_3_3_color == "red"){
-      popped_area.textContent = "Congrats red!!";
-      popped_area.classList.add("red");
-      blue.classList.add("disabled");
-      red.classList.add("disabled");
-      square.classList.add("disabled");
+    if (mass_3_1_color == "red" && mass_3_2_color == "red" && mass_3_3_color == "red"){
+
+      red_win = true;
+
       mass_3_1.classList.add("red_end");
       mass_3_2.classList.add("red_end");
       mass_3_3.classList.add("red_end");
     }
 
-    else if (mass_1_3_color == "red" && mass_2_3_color == "red" && mass_3_3_color == "red"){
-      popped_area.textContent = "Congrats red!!";
-      popped_area.classList.add("red");
-      blue.classList.add("disabled");
-      red.classList.add("disabled");
-      square.classList.add("disabled");
+    if (mass_1_3_color == "red" && mass_2_3_color == "red" && mass_3_3_color == "red"){
+
+      red_win = true;
+
       mass_1_3.classList.add("red_end");
       mass_2_3.classList.add("red_end");
       mass_3_3.classList.add("red_end");
     }
 
-    else if (mass_1_1_color == "red" && mass_2_2_color == "red" && mass_3_3_color == "red"){
-      popped_area.textContent = "Congrats red!!";
-      popped_area.classList.add("red");
-      blue.classList.add("disabled");
-      red.classList.add("disabled");
-      square.classList.add("disabled");
+    if (mass_1_1_color == "red" && mass_2_2_color == "red" && mass_3_3_color == "red"){
+
+      red_win = true;
+
       mass_1_1.classList.add("red_end");
       mass_2_2.classList.add("red_end");
       mass_3_3.classList.add("red_end");
     }
 
-    else if (mass_1_3_color == "red" && mass_2_2_color == "red" && mass_3_1_color == "red"){
-      popped_area.textContent = "Congrats red!!";
-      popped_area.classList.add("red");
-      blue.classList.add("disabled");
-      red.classList.add("disabled");
-      square.classList.add("disabled");
+    if (mass_1_3_color == "red" && mass_2_2_color == "red" && mass_3_1_color == "red"){
+
+      red_win = true;
+
       mass_1_3.classList.add("red_end");
       mass_2_2.classList.add("red_end");
       mass_3_1.classList.add("red_end");
+    }
+
+
+    //
+    // 判定結果
+    //
+    if (blue_win === true || red_win === true){
+      blue.classList.add("disabled");
+      red.classList.add("disabled");
+      square.classList.add("disabled");
+
+      if(blue_win === true && red_win === true){
+        popped_area.textContent = "DRAW...";
+        popped_area.classList.add("draw");
+      }
+      else if(blue_win === true){
+        popped_area.textContent = "Congrats blue!!";
+        popped_area.classList.add("blue");
+      }
+
+      else if(red_win === true){
+        popped_area.textContent = "Congrats red!!";
+        popped_area.classList.add("red");
+      }
+
     }
 
   }
@@ -981,7 +963,7 @@
   //
   mass_1_1.addEventListener('click', function(){
     mass_click(mass_1_1);
-    check_line();
+    //check_line();
   });
 
 
@@ -992,7 +974,7 @@
   //
   mass_1_2.addEventListener('click', function(){
     mass_click(mass_1_2);
-    check_line();
+    //check_line();
   });
 
 
@@ -1003,7 +985,7 @@
   //
   mass_1_3.addEventListener('click', function(){
     mass_click(mass_1_3);
-    check_line();
+    //check_line();
   });
 
   //
@@ -1013,7 +995,7 @@
   //
   mass_2_1.addEventListener('click', function(){
     mass_click(mass_2_1);
-    check_line();
+    //check_line();
   });
 
 
@@ -1024,7 +1006,7 @@
   //
   mass_2_2.addEventListener('click', function(){
     mass_click(mass_2_2);
-    check_line();
+    //check_line();
   });
 
 
@@ -1035,7 +1017,7 @@
   //
   mass_2_3.addEventListener('click', function(){
     mass_click(mass_2_3);
-    check_line();
+    //check_line();
   });
 
   //
@@ -1045,7 +1027,7 @@
   //
   mass_3_1.addEventListener('click', function(){
     mass_click(mass_3_1);
-    check_line();
+    //check_line();
   });
 
 
@@ -1056,7 +1038,7 @@
   //
   mass_3_2.addEventListener('click', function(){
     mass_click(mass_3_2);
-    check_line();
+    //check_line();
   });
 
 
@@ -1067,9 +1049,14 @@
   //
   mass_3_3.addEventListener('click', function(){
     mass_click(mass_3_3);
-    check_line();
+    //check_line();
   });
 
+  //
+  //
+  // リセット時の挙動
+  //
+  //
   reset.addEventListener('click', function(){
     mass_1_1_array = [];
     mass_1_2_array = [];
@@ -1113,6 +1100,7 @@
     popped_area.textContent = "Popped Area";
     popped_area.classList.remove("red");
     popped_area.classList.remove("blue");
+    popped_area.classList.remove("draw");
 
     show_all();
 

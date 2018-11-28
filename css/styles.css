@@ -480,6 +480,11 @@
   color: blue;
 }
 
+#popped_area.draw {
+  font-size: 24px;
+  color: purple;
+}
+
 
 
 
